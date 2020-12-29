@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<link rel="stylesheet" type="text/css" href="new 3.css">
+
+<script>
+
+//for validateForm
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Every details must be filled!!");
+    return false;
+  }
+}
+
+//onblur function
+function requiredField(input) {
+    if (input.value.length < 1) {
+      //red border
+        input.style.borderColor = "#e74c3c";
+      
+    } else if (input.type == "email") {
+      console.log("this is an email type");
+      
+        if (input.value.indexOf("@") != -1 && input.value.indexOf(".") != -1) {
+          //green border
+          input.style.borderColor = "#2ecc71";
+        } else {
+          //red border
+          input.style.borderColor = "#e74c3c";
+        }
+      
+    } else {
+      //green border
+        input.style.borderColor = "#2ecc71";
+    }
+}
+</script>
+</head>
+<body align="center";>
+<h1 id="title">Registration Form</h1><br>
+
+<div id="form_container">
+<form  id="form" name="myForm" method="POST" > 
+<p>Enter your details.</p><br>
+First name: <input type="text" name="fname" onblur="requiredField(this)"/><br><br>
+Last name: <input type="text"  onblur="requiredField(this)"/><br><br>
+Uid: <input type="text"  onblur="requiredField(this)"/><br><br>
+Father's name: <input type="text"  onblur="requiredField(this)"/><br><br>
+Class: <input type="text"  onblur="requiredField(this)"/><br><br>
+Age: <input type="number" min="1" max="99" onblur="requiredField(this)"/><br><br>
+Contact no. : <input type="number" onblur="requiredField(this)"/><br><br>
+Gender:
+<select onblur="requiredField(this)">
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Other">Other</option>
+</select><br><br>
+Highest qualification: <input type="text"  onblur="requiredField(this)"/><br><br>
+Email id: <input type="email" onblur="requiredField(this)"/><br><br>
+Stream: <input type="radio" name="team" value="Science" checked>Science
+	<input type="radio" name="team" value="Arts" >Arts
+	<input type="radio" name="team" value="Commerce">Commerce<br><br><br>	
+
+Permanent Address: <br><textarea rows="5" cols="35"  onblur="requiredField(this)"></textarea><br><br>
+College: <br><textarea rows="3" cols="35"  onblur="requiredField(this)"></textarea><br><br>
+<button type="button" onclick= "return validateForm()"  > OK</button><br><br>
+
+</form>
+</div>
+</body>
+</html>
